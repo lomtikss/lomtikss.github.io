@@ -29,7 +29,6 @@
             </div>
             
             <ul id="animeList" class="anime-grid">
-                <!-- Карточки будут добавлены через JS -->
             </ul>
         </main>
     </div>
@@ -40,43 +39,6 @@
         </svg>
         <span id="viewCount" class="counter-loading">...</span>
     </div>
-
-    <!-- Счетчик просмотров через CounterAPI (бесплатно, без регистрации) -->
-    <script>
-        (function() {
-            const COUNTER_KEY = 'lomtik-anime-site-v1';
-            const COUNTER_NS  = 'lomtiksite';
-            const viewCountEl = document.getElementById('viewCount');
-
-            // Форматируем число красиво: 1245 → 1 245
-            function formatNum(n) {
-                return n.toLocaleString('ru-RU');
-            }
-
-            // Один раз за сессию инкрементируем, потом только читаем
-            const alreadyCounted = sessionStorage.getItem('counted_' + COUNTER_KEY);
-            const apiUrl = alreadyCounted
-                ? `https://api.counterapi.dev/v1/${COUNTER_NS}/${COUNTER_KEY}/get`
-                : `https://api.counterapi.dev/v1/${COUNTER_NS}/${COUNTER_KEY}/up`;
-
-            fetch(apiUrl)
-                .then(r => r.json())
-                .then(data => {
-                    const count = data.count ?? data.value ?? 0;
-                    viewCountEl.textContent = formatNum(count);
-                    viewCountEl.classList.remove('counter-loading');
-                    if (!alreadyCounted) {
-                        sessionStorage.setItem('counted_' + COUNTER_KEY, '1');
-                    }
-                })
-                .catch(() => {
-                    viewCountEl.textContent = '—';
-                    viewCountEl.classList.remove('counter-loading');
-                });
-        })();
-    </script>
-
-    <!-- Подключаем данные со ссылками на локальные картинки -->
     <script src="data.js"></script>
     <script>
         const animeListEl = document.getElementById('animeList');
@@ -140,7 +102,6 @@
             animeListEl.innerHTML = '';
             const t = translations[currentLang];
             
-            // Сортировка: по оценке (по убыванию). При равных оценках сохраняется исходный порядок из data.js
             const sortedList = [...list].sort((a, b) => {
                 const ratingA = a.rating || 0;
                 const ratingB = b.rating || 0;
@@ -157,7 +118,6 @@
                 
                 li.innerHTML = `
                     <div class="card-cover-wrapper">
-                        <!-- Используем локальную картинку (загружается мгновенно). Если не найдена - ставим заглушку -->
                         <img class="card-cover loaded" src="${item.cover}" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x140/1e293b/8b5cf6?text=${encodeURIComponent(displayTitle.charAt(0).toUpperCase())}';" alt="Cover">
                     </div>
                     <div class="card-content">
