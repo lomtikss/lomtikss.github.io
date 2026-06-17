@@ -1,0 +1,366 @@
+:root {
+    --bg-color: #1d0707;
+    --text-color: #f8fafc;
+    --card-bg: rgba(134, 0, 0, 0.6);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --accent-color: #8d0000; 
+    --accent-glow: rgba(8, 17, 32, 0.5);
+    --accent-secondary: #db0000;
+    --accent-tertiary: #ff0000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6;
+}
+
+/* Фоновая анимация с градиентами */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle at 15% 50%, rgba(246, 59, 59, 0.15), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(255, 41, 41, 0.15), transparent 30%),
+                radial-gradient(circle at 50% 80%, rgba(255, 0, 0, 0.1), transparent 40%);
+    animation: bgPulse 15s ease-in-out infinite alternate;
+}
+
+@keyframes bgPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05) translate(2%, 2%); }
+    100% { transform: scale(1.1) translate(-2%, -2%); }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+/* Шапка сайта */
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInDown 0.8s ease-out;
+    position: relative;
+}
+
+/* Кнопка перевода */
+.lang-btn {
+    position: absolute;
+    font-family: "Russo One", sans-serif;
+    top: 0;
+    right: 0;
+    background: rgba(255, 0, 0, 0.6);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.lang-btn:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 0, 0, 0.4);
+    transform: scale(1.05);
+}
+
+header h1 {
+    font-family: "Russo One", sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ff0000, #ff6767, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 20px rgba(139, 92, 246, 0.2));
+    letter-spacing: -1px;
+}
+
+header p {
+    font-family: "Russo One", sans-serif;
+    font-size: 1.25rem;
+    color: #ff0000;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+/* Статистика */
+.stats {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #ff0000;
+    font-family: "Russo One", sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    animation: fadeIn 1s ease-out 0.4s both;
+}
+
+.stats-label strong {
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+}
+
+/* Сетка карточек */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2rem;
+    list-style: none;
+}
+
+/* Гласморфизм карточки */
+.anime-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 1rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out both;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.anime-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: all 0.6s ease;
+}
+
+.anime-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4), 
+                0 0 20px rgba(255, 0, 0, 0.15);
+    z-index: 10;
+    background: rgba(70, 0, 0, 0.8);
+}
+
+.anime-card:hover::before {
+    left: 200%;
+}
+
+/* Обложка аниме */
+.card-cover-wrapper {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    background: rgba(88, 20, 20, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card-cover.loaded {
+    opacity: 1;
+}
+
+.card-cover-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(139, 92, 246, 0.2);
+    border-top-color: #c084fc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: -1;
+}
+
+.card-cover.loaded + .card-cover-loader {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-family: "Russo One", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #ff6666;
+    line-height: 1.4;
+    margin-bottom: auto; /* Отодвигает рейтинг вниз */
+}
+
+/* Рейтинг */
+.rating-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.rating-value {
+    font-size: 1rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.stars {
+    display: flex;
+    gap: 4px;
+    font-size: 2.3rem;
+    line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.star {
+    background: linear-gradient(90deg, #fbbf24 var(--fill), rgba(255, 255, 255, 0.1) var(--fill));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.2s ease;
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Стили скроллбара */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 6px;
+    border: 3px solid var(--bg-color);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Счетчик просмотров */
+.views-counter {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(134, 0, 0, 0.6);
+    border: 1px solid var(--card-border);
+    padding: 10px 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--text-color);
+    font-family: "Russo One", sans-serif;
+    font-size: 1.1rem;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out both;
+    animation-delay: 0.8s;
+}
+
+.views-counter:hover {
+    background: rgba(70, 0, 0, 0.8);
+    transform: translateY(-2px);
+    border-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.2);
+}
+
+.views-counter svg {
+    color: #ff6666;
+}
+
+.counter-loading {
+    opacity: 0.5;
+    animation: counterPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes counterPulse {
+    from { opacity: 0.3; }
+    to   { opacity: 0.8; }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.8rem;
+    }
+    .anime-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+    .container {
+        padding: 2rem 1.2rem;
+    }
+}
