@@ -86,4 +86,5 @@ const animeData = [
   { title: "Яйцо ангела", titleEn: "Angel's Egg", cover: "images/angel_s_egg.jpg", rating: 3.5 },
   { title: "Кошачий рай", titleEn: "Nekopara", cover: "images/nekopara.jpg", rating: 4 },
   { title: "Становясь волшебницей", titleEn: "Gushing over magical Girls", cover: "images/Gushing_over_Magical_Girls.jpg", rating: 4 },
+  { title: "Сад изящных слов", titleEn: "The Garden of Words", cover: "images/sad_slow.jpg", rating: 4 },
 ];
