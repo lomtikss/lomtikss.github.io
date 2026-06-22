@@ -41,6 +41,7 @@ const animeData = [
   { title: "Невиданный цветок", titleEn: "Anohana: The Flower We Saw That Day", cover: "images/anohana_the_flower_we_saw_that_day.jpg", rating: 2 },
   { title: "Обещанный Неверленд", titleEn: "The Promised Neverland", cover: "images/the_promised_neverland.jpg", rating: 3 },
   { title: "Одинокий рокер!", titleEn: "Bocchi the Rock!", cover: "images/bocchi_the_rock.jpg", rating: 3.5 },
+  { title: "Маг-целитель: Новый старт", titleEn: "Redo of Healer", cover: "images/magcelitel.jpg", rating: 3.5 },
   { title: "Одноклассник", titleEn: "Doukyusei (Classmates)", cover: "images/doukyusei_classmates.jpg", rating: 2.5 },
   { title: "Оседлав волну с тобой", titleEn: "Ride Your Wave", cover: "images/ride_your_wave.jpg", rating: 2 },
   { title: "Очень приятно, Бог", titleEn: "Kamisama Kiss", cover: "images/kamisama_kiss.jpg", rating: 4 },
