@@ -90,4 +90,5 @@ const animeData = [
   { title: "Кошачий рай", titleEn: "Nekopara", cover: "images/nekopara.jpg", rating: 4 },
   { title: "Становясь волшебницей", titleEn: "Gushing over magical Girls", cover: "images/Gushing_over_Magical_Girls.jpg", rating: 4 },
   { title: "Сад изящных слов", titleEn: "The Garden of Words", cover: "images/sad_slow.jpg", rating: 4 },
+  { title: "Незнакомец на берегу моря", titleEn: "The Stranger by the Shore", cover: "images/gays.jpg", rating: 2 },
 ];
