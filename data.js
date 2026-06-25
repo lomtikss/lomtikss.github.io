@@ -22,6 +22,7 @@ const animeData = [
   { title: "Добро пожаловать в класс превосходства", titleEn: "Classroom of the Elite", cover: "images/classroom_of_the_elite.jpg", rating: 3.5 },
   { title: "Дорога юности", titleEn: "Blue Spring Ride", cover: "images/blue_spring_ride.jpg", rating: 2.5 },
   { title: "Дороро", titleEn: "Dororo", cover: "images/dororo.jpg", rating: 4 },
+  { title: "Меланхолия Харухи Судзумии", titleEn: "The Melancholy of Haruhi Suzumiya", cover: "images/haruhi.jpg", rating: 4 },
   { title: "Ангел по соседству", titleEn: "The Angel Next Door Spoils Me Rotten", cover: "images/the_angel_next_door_spoils_me_rotten.jpg", rating: 5 },
   { title: "Жозе, тигр и рыбы", titleEn: "Josee, the Tiger and the Fish", cover: "images/josee_the_tiger_and_the_fish.jpg", rating: 3.5 },
   { title: "Загадочная девушка X", titleEn: "X (X/1999)", cover: "images/x_x_1999.jpg", rating: 2 },
