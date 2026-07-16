@@ -93,4 +93,5 @@ const animeData = [
   { title: "Незнакомец на берегу моря", titleEn: "The Stranger by the Shore", cover: "images/gays.jpg", rating: 2 },
   { title: "С его стороны — с её стороны", titleEn: "His and Her Circumstances", cover: "images/urme.jpg", rating: 3.5 },
   { title: "Убийца Акамэ!", titleEn: "Akame ga Kill!", cover: "images/akame.jpg", rating: 4 },
+  { title: "Гуррен-Лаганн, пронзающий небеса", titleEn: "Tengen Toppa Gurren Lagann", cover: "images/gurren.jpg", rating: 4 },
 ];
