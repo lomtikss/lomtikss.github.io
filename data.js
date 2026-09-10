@@ -101,4 +101,5 @@ const animeData = [
   { title: "Морская невеста", titleEn: "My Bride is a Mermaid", cover: "images/more.jpg", rating: 4.5 },
   { title: "Достучаться до тебя", titleEn: "Kimi ni Todoke: From Me to You", cover: "images/tebya.jpg", rating: 3.5 },
   { title: "Фури-Кури", titleEn: "Fooly Cooly", cover: "images/fury.jpg", rating: 4.5 },
+  { title: "Вайолет Эвергарден", titleEn: "Violet Evergarden", cover: "images/viole.jpg", rating: 3 },
 ];
