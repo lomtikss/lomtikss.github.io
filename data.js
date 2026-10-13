@@ -104,4 +104,5 @@ const animeData = [
   { title: "Вайолет Эвергарден", titleEn: "Violet Evergarden", cover: "images/viole.jpg", rating: 3 },
   { title: "Кошечка из сакурасо", titleEn: "The Pet Girl of Sakurasou", cover: "images/sakucat.jpg", rating: 4 },
   { title: "Приоритет чудо-яйца", titleEn: "Wonder Egg Priority", cover: "images/yaica.jpg", rating: 4 },
+  { title: "Бездомный бог", titleEn: "Noragami", cover: "images/bog.jpg", rating: 4 },
 ];
